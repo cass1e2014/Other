@@ -17,6 +17,37 @@
 
 public class BestTimeToBuyAndSellStockIII {
 	public static int maxProfit(int[] prices) {
-
+		if(prices == null || prices.length <= 1){
+			return 0;
+		}
+		
+		//left和right里面存的都是利润
+		int[] left = new int[prices.length];
+		int[] right = new int[prices.length];
+		
+		//DP from left to right
+		left[0] = 0;//初始利润
+		int min = prices[0];
+		//以最低买入价开始找利润的最大值存在left[]里面
+		for(int i = 1; i < prices.length; i++){
+			left[i] = Math.max(left[i - 1], prices[i] - min);//每次利潤都是 比較 前面的利潤 (i - 1) 和 這次以後 (prices[i] - min)
+			min = Math.min(min, prices[i]);
+		}
+		
+		
+		//DP from right to left
+		int max = prices[prices.length - 1];
+		right[prices.length - 1] = prices[prices.length - 1];
+		//以最高賣出價開始找
+		for(int i = prices.length - 2; i >= 0; i--){
+			right[i] = Math.max(right[i + 1], max - prices[i]);
+			max = Math.max(max, prices[i]);
+		}
+		
+		//O(n)找到最大值
+		for(int i = 0; i < prices.length; i++){
+			max = Math.max(max, left[i] + right[i]);
+		}
+		return max;
 	}
 }

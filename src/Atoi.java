@@ -1,4 +1,9 @@
-
+/**
+ * String to Integer(atoi)
+ * Implement atoi to convert a string to an integer.
+ * @author cassie9082
+ *
+ */
 public class Atoi {
 
 	public static void main(String[] args) {
@@ -12,10 +17,11 @@ public class Atoi {
 			return 0;
 		}
 		
-		str = str.trim();
+		str = str.trim();//对string做trim
 		int sign = 1;
 		int index = 0;
 		
+		//数字是正的还是负的？
 		if(str.charAt(index) == '+'){
 			index ++;
 		}else if(str.charAt(index) == '-'){
