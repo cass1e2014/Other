@@ -12,12 +12,16 @@ public class PalindromeNumber {
 	}
 
 	public static boolean isPalindrome(int x) {
-		int temp = x;
-		int reversed = 0;
-		while(temp > 0){
-			reversed = reversed * 10 + temp % 10;
-			temp = temp / 10;
-		}
-		return reversed == x;
+		 if(x == 0){
+	            return true;
+	        }
+	        
+	        int temp = x;
+	        int reversed = 0;
+	        while(temp > 0){
+	             reversed = reversed * 10 + temp % 10;
+	             temp = temp / 10;
+	        }
+	        return reversed == x;
 	}
 }

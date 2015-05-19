@@ -24,17 +24,24 @@ public class ReverseInteger {
 
 	public static void main(String[] args) {
 		ReverseInteger r = new ReverseInteger();
-		int result = r.reverse(123);
+		int result = r.reverse(1534236469);
 		System.out.println("Reverse Result ： " + result);
 	}
 
 	public int reverse(int x) {
-		int reversed = 0;
-		while (x != 0) {
-			reversed = reversed * 10 + x % 10;
-			x = x / 10;
-		}
-		return reversed;
+		if(x == Integer.MIN_VALUE){
+            return 0;
+        }
+        int num = Math.abs(x);
+        int reversed = 0;
+        while(num != 0){
+        	//看如果reversed * 10 + num % 10之后是否会大于Integer.MAX_VALUE(把所有的运算移到右边）
+            if(reversed > (Integer.MAX_VALUE - num % 10) / 10){
+                return 0;
+            }
+            reversed = reversed * 10 + num % 10;
+            num = num / 10;
+        }
+        return x > 0 ? reversed : -reversed;
 	}
-
 }
