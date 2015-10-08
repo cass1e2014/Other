@@ -5,7 +5,8 @@
  * 
  */
 public class PalindromeNumber {
-
+	
+	//"16461"
 	public static void main(String[] args) {
 		boolean result = isPalindrome(321123);
 		System.out.println(result);

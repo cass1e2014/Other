@@ -32,32 +32,23 @@ public class MaximalRectangle {
 					height[j] += 1;
 				}
 			}
-			max = Math.max(max, largestRectangleArea(height));
+			max = Math.max(max, largestRectangleArea(height));  //做完一行就会call一次方法算最大面积
 		}
 		return max;
 	}
 
 	public int largestRectangleArea(int[] height) {
 		Stack<Integer> stack = new Stack<Integer>();
-		int[] h = new int[height.length + 1];
-		h = Arrays.copyOf(height, height.length + 1);// 需要用到height[]后一位，所以只能new一个新的[]再copy过去
-		int i = 0;
-		int maxArea = 0;
-		while (i < h.length) {
-			if (stack.isEmpty() || h[stack.peek()] <= h[i]) {
-				stack.push(i++);
-			} else {
-				int t = stack.pop();
-				int square = -1;
-				if (stack.isEmpty()) {
-					square = h[t] * i;
-				} else {
-					int wide = i - stack.peek() - 1;
-					square = h[t] * wide;
-				}
-				maxArea = Math.max(maxArea, square);
-			}
-		}
-		return maxArea;
+        int maxArea = 0;
+        for(int i = 0; i <= height.length; i++){
+            int current = (i == height.length) ? -1 : height[i];
+            while(!stack.isEmpty() && current <= height[stack.peek()]){
+                int h = height[stack.pop()];
+                int w = stack.isEmpty() ? i : i - stack.peek() - 1;
+                maxArea = Math.max(maxArea, h * w);
+            }
+            stack.push(i);
+        }
+        return maxArea;
 	}
 }
