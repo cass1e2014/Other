@@ -14,6 +14,7 @@ import java.util.Stack;
  * 
  */
 public class MaximalRectangle {
+	//Time: O(MN) Space: O(M)
 	public int maximalRectangle(char[][] matrix) {
 		if (matrix == null || matrix[0].length == 0 || matrix.length == 0) {
 			return 0;
@@ -37,6 +38,8 @@ public class MaximalRectangle {
 		return max;
 	}
 
+	//注意！这是另外一题！
+	//Time: O(N^2) Space: O(1)
 	public int largestRectangleArea(int[] height) {
 		Stack<Integer> stack = new Stack<Integer>();
         int maxArea = 0;

@@ -16,6 +16,7 @@
  * For the purpose of this problem, assume that your function returns 0 when the
  * reversed integer overflows.
  * 
+ * Time O(N), Space O(1)
  * 
  * @author cassie9082
  * 

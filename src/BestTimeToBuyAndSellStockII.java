@@ -6,7 +6,9 @@
  * 
  */
 
+//k = Infinity (as many times as you like) 
 public class BestTimeToBuyAndSellStockII {
+	//Greedy
 	public int maxProfit(int[] prices) {
 		if(prices == null || prices.length < 2){
             return 0;
@@ -14,6 +16,7 @@ public class BestTimeToBuyAndSellStockII {
         
         int total = 0;
         for(int i = 1; i < prices.length; i ++){
+        	//sum up all increasing price
             if(prices[i] > prices[i - 1]){
                 int profit = prices[i] - prices[i - 1];
                 total += profit;
