@@ -16,13 +16,8 @@ public class MaxPointsOnALine {
 			Point pt = points[i];
 			int pointMax = 0;// max number of neighbor points on the same line
 								// (exclude the same points)
-			int samePoint = 0;// number of same points (exclude the point
-								// itself)
-			Map<Double, Integer> map = new HashMap<Double, Integer>();// <slope,
-																		// number
-																		// of
-																		// neighbor
-																		// points>
+			int samePoint = 0;// number of same points (exclude the point itself)
+			Map<Double, Integer> map = new HashMap<Double, Integer>();// <slope,number of neighbor points>
 			for (int j = i + 1; j < points.length; j++) {
 				Point neighbor = points[j];
 				if (pt.x == neighbor.x && pt.y == neighbor.y) {

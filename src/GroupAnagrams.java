@@ -30,7 +30,7 @@ public class GroupAnagrams {
     
         Map<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
         Arrays.sort(strs);
-            for(String s : strs){
+        for(String s : strs){
             char[] c = s.toCharArray();
             Arrays.sort(c);
             String sorted = new String(c);
